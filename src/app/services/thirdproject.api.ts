@@ -1,0 +1,1 @@
+export const THIRDPROJECT_API: string = 'http://localhost:8080';
