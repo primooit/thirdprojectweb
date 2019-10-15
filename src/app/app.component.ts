@@ -8,7 +8,7 @@ import { SharedService } from './services/shared.service';
 })
 export class AppComponent {
 
-  showTemplate: boolean = false;
+  showTemplate: boolean = true;
   public shared : SharedService;
 
   constructor(){

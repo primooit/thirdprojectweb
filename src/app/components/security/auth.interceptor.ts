@@ -4,17 +4,16 @@ import { Observable, of } from 'rxjs';
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class AuthInterceptor implements HttpInterceptor{
+export class AuthInterceptor implements HttpInterceptor {
 
     shared: SharedService;
 
-    constructor(){
-        this.shared=SharedService.getInstance();
+    constructor() {
+        this.shared = SharedService.getInstance();
     }
 
-    intercept(req: HttpRequest<any>, next: HttpHandler): Observable <HttpEvent<any>> {
+    intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         let authRequest: any;
-
         if(this.shared.isLoggedIn()){
             authRequest=req.clone({
                 setHeaders: {
@@ -25,6 +24,7 @@ export class AuthInterceptor implements HttpInterceptor{
         } else{
             return next.handle(req);
         }
+        
+
     }
-    
 }

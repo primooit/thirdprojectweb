@@ -3,9 +3,13 @@
   "rules": {
     "array-type": false,
     "arrow-parens": false,
+    "semi": [2, "always"],
     "deprecation": {
       "severity": "warning"
     },
+    "rulesDirectory": [
+      "codelyzer"
+    ],
     "component-class-suffix": true,
     "contextual-lifecycle": true,
     "directive-class-suffix": true,
@@ -86,7 +90,8 @@
     "use-lifecycle-interface": true,
     "use-pipe-transform-interface": true
   },
-  "rulesDirectory": [
-    "codelyzer"
-  ]
+  "env": {
+    "jest": true
+  }
+  
 }

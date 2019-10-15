@@ -9,7 +9,7 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a [routerLink]="['/user-list']"><i class="fa fa-circle-o"></i> List</a></li>
+            <li *ngIf= "shared.user.profile =='ROLE_ADMIN'"><a [routerLink]="['/user-list']"><i class="fa fa-circle-o"></i> List</a></li>
             <li><a [routerLink]="['/user-new']"><i class="fa fa-circle-o"></i> New User</a></li>
           </ul>
         </li>

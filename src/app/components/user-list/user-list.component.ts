@@ -37,7 +37,7 @@ export class UserListComponent implements OnInit {
     this.classCss= {
       'alert': true
     }
-    this.classCss['aleert-'+type]= true;
+    this.classCss['alert-'+type]= true;
   }
 
   private showMessage(message: {type: string, text: string}): void{

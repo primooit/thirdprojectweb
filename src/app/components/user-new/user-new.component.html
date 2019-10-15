@@ -51,14 +51,73 @@
                             style="width: 100%"
                             required>
                             <option>ROLE_ADMIN</option>
-                            <option>ROLE_USER</option>
+                            <option>ROLE_FUSER</option>
+                            <option>ROLE_PUSER</option>
                             <option>ROLE_SALESMAN</option>
                             </select>
                     <span class="help-block" *ngIf="profile.invalid && profile.dirty">Profile is required</span>
                     </div>
                 </div>
-
             </div>
+
+            <div class="box-body">
+              <div [ngClass]= "getFromGroupClass(phone.invalid, phone.dirty)">
+                <label for="inputPhone" class="col-sm-2 control-label">Phone</label>
+                <div class="col-sm-10">
+                  <input 
+                            type="phone" 
+                            [(ngModel)]="user.phone"
+                            class="form-control" 
+                            name="phone"
+                            id="inputPhone"
+                            #phone="ngModel" 
+                            placeholder="Phone"
+                            phone>
+                    
+                </div>
+              </div>
+            </div>
+
+           
+            <div class="box-body">
+              <div [ngClass]= "getFromGroupClass(cpf.invalid, cpf.dirty)">
+                <label for="inputCpf" class="col-sm-2 control-label">CPF</label>
+                <div class="col-sm-10">
+                  <input 
+                            type="cpf" 
+                            [(ngModel)]="user.cpf"
+                            class="form-control" 
+                            name="cpf"
+                            id="inputCpf"
+                            #cpf="ngModel" 
+                            placeholder="CPF"
+                            cpf>
+                    
+                </div>
+              </div>
+            </div>
+
+            <div class="box-body">
+              <div [ngClass]= "getFromGroupClass(adress.invalid, adress.dirty)">
+                <label for="inputAdress" class="col-sm-2 control-label">Adress</label>
+                <div class="col-sm-10">
+                  <input 
+                            type="adress" 
+                            [(ngModel)]="user.adress"
+                            class="form-control" 
+                            name="adress"
+                            id="inputAdress"
+                            #adress="ngModel" 
+                            placeholder="Adress"
+                            adress>
+                  
+                </div>
+              </div>
+            </div>
+
+
+
+            
         <div class="box-footer">
           <button type="submit" (disabled)="!form.valid" class="btn btn-info pull-right">Submit</button>
         </div>
