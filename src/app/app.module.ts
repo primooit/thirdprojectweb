@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 import { AuthGuard } from './components/security/auth.guard';
 import { UserNewComponent } from './components/user-new/user-new.component';
 import { UserListComponent } from './components/user-list/user-list.component';
+import { ShowPostComponent } from './components/show-post/show-post.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { UserListComponent } from './components/user-list/user-list.component';
     HomeComponent,
     LoginComponent,
     UserNewComponent,
-    UserListComponent
+    UserListComponent,
+    ShowPostComponent
   ],
   imports: [
     FormsModule,
