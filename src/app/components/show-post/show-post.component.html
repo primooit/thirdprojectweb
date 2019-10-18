@@ -1,26 +1,71 @@
+<div [ngClass]="classCss" role="alert" *ngIf="message">
+    <strong>{{ message.text }}</strong>
+  </div>
+  <div class="row">
+  <div class="col-md-10">
+  <div class="box">
+    <div class="box-header with-border">
+      <h3 class="box-title">Ticket List</h3>
+    </div>
+    <div [ngClass]="classCss" role="alert" *ngIf="message">
+        <strong>{{ message.text }}</strong>
+    </div>
+    <div class="box-body">
+    </div>    
+    <div class="box-footer">
+        <button class="btn btn-info pull-left" (click)="cleanFilter()">Clean Filter</button>
+        <button style="margin-left: 10px" class="btn btn-info pull-right" (click)="filter()">Filter</button>
+    </div>
+    <div class="box-body">
+      <table class="table table-bordered">
+        <tr>
+          <th>Number</th>
+          <th>Title</th>
+          <th>Priority</th>
+          <th>Status</th>
+          <th>Owner</th>
+          <th style="width: 10px" >&nbsp;</th>
+          <th style="width: 10px" >&nbsp;</th>
+          <th style="width: 10px">&nbsp;</th>
+        </tr>
+        <tr *ngFor="let posts of listPosts">
+          <td>{{posts.number}}</td>
+          <td>{{posts.title}}</td>
+          <td >
+              <button class="btn btn-primary" (click)="edit(posts.title)">Edit</button>
+          </td>
+          <td >
+              <button class="btn btn-danger" (click)="delete(posts.title)">Delete</button>
+          </td>
+          <td><button class="btn btn-success" (click)="detail(posts.title)">Detail</button></td>
+        </tr>
+      </table>
+    </div>
+    <div class="box-footer clearfix">
+      <ul class="pagination pagination-sm no-margin pull-right">
+        <li><a href="" (click)="setPreviousPage($event)">&laquo;</a></li>
+        <li *ngFor="let p of pages; let i=index">
+            <a [ngClass]="{'pagination-focus':i==page}"  href="" (click)="setPage(i,$event)">{{i+1}}</a>
+        </li>
+        <li><a href="" (click)="setNextPage($event)">&raquo;</a></li>
+      </ul>
+    </div>
+  </div>
+  </div>
+  </div>
+
+
 <div class="list-group">
-        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start active">
+        <a *ngFor="let posts of postsList" href="#" class="list-group-item list-group-item-action flex-column align-items-start">
           <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">List group item heading</h5>
-            <small>3 days ago</small>
+            <h5 class="mb-1">{{posts.title}}</h5>
+              <small>3 days ago</small>
           </div>
-          <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-          <small>Donec id elit non mi porta.</small>
-        </a>
-        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">List group item heading</h5>
-            <small class="text-muted">3 days ago</small>
-          </div>
-          <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-          <small class="text-muted">Donec id elit non mi porta.</small>
-        </a>
-        <a href="#" class="list-group-item list-group-item-action flex-column align-items-start">
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">List group item heading</h5>
-            <small class="text-muted">3 days ago</small>
-          </div>
-          <p class="mb-1">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-          <small class="text-muted">Donec id elit non mi porta.</small>
-        </a>
-      </div>
+            <p class="mb-1">{{posts.description}}</p>
+              <small>read more...</small>
+            <div>
+                <i title="Edit" class="fas fa-edit" aria-hidden="true"></i>
+                <i title="Delete" class="fas fa-trash-alt" aria-hidden="true"></i>
+            </div>
+          </a>
+</div>

@@ -5,6 +5,7 @@ import { Routes, RouterModule} from '@angular/router'
 import { ModuleWithProviders } from '@angular/core';
 import { AuthGuard } from './components/security/auth.guard';
 import { UserNewComponent } from './components/user-new/user-new.component';
+import { PostsNewComponent } from './components/posts-new/posts-new.component';
 
 
 export const ROUTES: Routes = [ 
@@ -12,7 +13,8 @@ export const ROUTES: Routes = [
     {path: 'login', component: LoginComponent},
     {path: 'user-new', component: UserNewComponent, canActivate: [AuthGuard]},
     {path: 'user-new/:id', component: UserNewComponent, canActivate: [AuthGuard]},
-    {path: 'user-list', component: UserListComponent, canActivate: [AuthGuard]}
+    {path: 'user-list', component: UserListComponent, canActivate: [AuthGuard]},
+    {path: 'posts-new', component: PostsNewComponent, canActivate: [AuthGuard]},
 ]
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(ROUTES);

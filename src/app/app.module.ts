@@ -1,3 +1,4 @@
+import { PostsService } from 'src/app/services/posts.service';
 import { DialogService } from './dialog.service';
 import { AuthInterceptor } from './components/security/auth.interceptor';
 import { UserService } from './services/user.service';
@@ -18,6 +19,7 @@ import { AuthGuard } from './components/security/auth.guard';
 import { UserNewComponent } from './components/user-new/user-new.component';
 import { UserListComponent } from './components/user-list/user-list.component';
 import { ShowPostComponent } from './components/show-post/show-post.component';
+import { PostsNewComponent } from './components/posts-new/posts-new.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { ShowPostComponent } from './components/show-post/show-post.component';
     LoginComponent,
     UserNewComponent,
     UserListComponent,
-    ShowPostComponent
+    ShowPostComponent,
+    PostsNewComponent
   ],
   imports: [
     FormsModule,
@@ -41,7 +44,9 @@ import { ShowPostComponent } from './components/show-post/show-post.component';
     UserService,
     SharedService,
     DialogService,
+    PostsService,
     AuthGuard,
+    
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,

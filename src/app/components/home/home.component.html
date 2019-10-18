@@ -1,3 +1,4 @@
+
 <header class="header clearfix">
         <nav>
             <ul class="nav nav-pills float-right">
@@ -6,10 +7,10 @@
                       Home
                     </button>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item"><a [routerLink]="['posts-new']"> 
                     <button type="button" class="btn btn-link" data-toggle="modal" data-target="#exampleModal">
                       Add
-                    </button>
+                    </button></a>
                 </li>
                 <li class="nav-item">
                      <button type="button" class="btn btn-link">
@@ -123,3 +124,5 @@
             </div>
             <!-- /.info-box -->
         </div>
+
+        
