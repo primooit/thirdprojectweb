@@ -27,7 +27,16 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
-  
+  private loggedInStatus = JSON.parse(localStorage.getItem('loggedIn') || 'false')
+
+  setLoggedIn(value: boolean) {
+    this.loggedInStatus= value
+    localStorage.setItem('loggedIn', 'true')
+  }
+get isLoggedIn() {
+  return JSON.parse(localStorage.getItem('loggedIn') || this.loggedInStatus.toString())
+}
+
   login(){
     this.message= '';
     this.UserService.login(this.user).subscribe((userAuthentication: CurrentUser) =>{
@@ -35,7 +44,7 @@ export class LoginComponent implements OnInit {
       this.shared.user = userAuthentication.user;
       this.shared.user.profile= this.shared.user.profile;
       if(this.shared.user && this.shared.token){
-        localStorage.setItem('currentUser', JSON.stringify(this.user));
+        
       }
       
       this.router.navigate(['/']);

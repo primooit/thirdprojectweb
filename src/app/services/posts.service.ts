@@ -25,7 +25,7 @@ export class PostsService {
   }
 
   getAllPosts(){
-		return this.http.get(`${THIRDPROJECT_API}/api/posts/getAllPosts`);
+		return this.http.get(`${THIRDPROJECT_API}/api/posts/getallposts`,{});
 	}
 
   findById(title:string){

@@ -21,7 +21,8 @@ export class AuthGuard implements CanActivate {
         }
 
         else if (localStorage.getItem('currentUser')) {
-          
+            this.shared.user.profile = this.shared.user.profile;
+            this.shared.showTemplate.emit(true);
             return true;
         }
         this.router.navigate(['/login']);

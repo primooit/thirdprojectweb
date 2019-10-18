@@ -33,11 +33,11 @@ export class ShowPostComponent implements OnInit {
 
   ngOnInit() {
     this.findAll(this.page, this.count);
-    /*this.getAllPosts();
+    this.getAllPosts();
 
     this.postsService.postAdded_Observable.subscribe(res => {
       this.getAllPosts(); 
-    });*/
+    });
   }
 
 
@@ -70,10 +70,15 @@ export class ShowPostComponent implements OnInit {
   }
 
   getAllPosts(){
-  	this.postsService.getAllPosts().subscribe(result => {
-  		console.log('result is ', result);
-  		this.posts = result['data'];
-  	});
+  	this.postsService.getAllPosts().subscribe((responseApi: ResponseApi) => {
+      this.listPosts = responseApi['data']['content'];
+      this.pages = new Array(responseApi['data']['content']);
+    }, err => {
+      this.showMessage({
+        type: 'error',
+        text: err['error']['errors'][0]
+      });
+    });
   }
 
 
